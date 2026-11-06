@@ -1,3 +1,8 @@
+.section--study.is-correct {
+  border-color: var(--color-correct);
+  background: var(--color-correct-background);
+}
+
 .study__question {
   display: flex;
   flex-direction: column;

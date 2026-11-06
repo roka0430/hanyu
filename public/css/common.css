@@ -25,6 +25,9 @@
 
   --color-accent: #e5b567;
   --color-china: #c94c4c;
+
+  --color-correct: #81b89a;
+  --color-correct-background: #1c2924;
 }
 
 * {
