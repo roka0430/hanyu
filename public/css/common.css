@@ -1,16 +1,16 @@
 @font-face {
   font-family: "Noto Sans JP";
-  src: url("/fonts/NotoSansJP-Regular.ttf") format("TrueType");
+  src: url("/fonts/noto-sans-jp/NotoSansJP-Regular.ttf") format("TrueType");
 }
 
 @font-face {
   font-family: "Noto Sans SC";
-  src: url("/fonts/NotoSansSC-VariableFont_wght.ttf") format("TrueType");
+  src: url("/fonts/noto-sans-sc/NotoSansSC-VariableFont_wght.ttf") format("TrueType");
 }
 
 @font-face {
   font-family: "Inter";
-  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("TrueType");
+  src: url("/fonts/inter/Inter-VariableFont_opsz,wght.ttf") format("TrueType");
 }
 
 :root {
