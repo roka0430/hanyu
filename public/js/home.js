@@ -28,5 +28,26 @@ document.addEventListener("alpine:init", () => {
     },
   }));
 
-  Alpine.data("categories", () => ({}));
+  Alpine.data("categories", () => ({
+    vocabulary: [],
+
+    async init() {
+      this.vocabulary = await this.loadVocabulary();
+    },
+
+    async loadVocabulary() {
+      try {
+        const res = await fetch("/api/vocabulary");
+
+        if (!res.ok) {
+          throw new Error("Failed to load vocabulary");
+        }
+
+        return await res.json();
+      } catch (error) {
+        console.error(error);
+        return [];
+      }
+    },
+  }));
 });

@@ -26,7 +26,13 @@
         </div>
       </div>
     </section>
-    <section class="section--categories" x-data="categories"></section>
+    <section class="section--categories" x-data="categories">
+      <template x-for="vocab in vocabulary" :key="vocab.id">
+        <a :href="`/study?id=${vocab.id}`">
+          <div x-text="vocab.name"></div>
+        </a>
+      </template>
+    </section>
   </main>
 
   <script type="module" src="/js/common.js" defer></script>
