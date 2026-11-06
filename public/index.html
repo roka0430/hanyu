@@ -10,9 +10,47 @@
 </head>
 
 <body>
-  <h1>Hanyu</h1>
+  <main x-data="main">
+    <section class="section section--settings">
+      <div class="settings-group">
+        <h2 class="settings-group__heading">モード選択</h2>
+        <div class="settings-group__content">
+          <label>
+            <input type="radio" name="mode" value="input" x-model="mode">
+            <span>ピンイン入力</span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="card" x-model="mode">
+            <span>暗記カード</span>
+          </label>
+        </div>
+      </div>
+    </section>
+    <section class="section section--studying">
+      <template x-if="mode === 'input'">
+        <div class="studying studying--input">
+          <div class="studying__question">
+            <div class="studying__question-number">1 / 10</div>
+            <div class="studying__question-ja">中国語</div>
+            <div class="studying__question-cn text--chinese">汉语</div>
+            <div class="studying__question-pinyin text--pinyin">Hànyǔ</div>
+          </div>
+          <div class="studying__answer">
+            <input type="text" spellcheck="false">
+          </div>
+        </div>
+      </template>
+      <template x-if="mode === 'card'">
+        <div class="studying studying--card">
+          card
+        </div>
+      </template>
+    </section>
+  </main>
+
   <script type="module" src="/js/common.js" defer></script>
   <script type="module" src="/js/home.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 
 </html>

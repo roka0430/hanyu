@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url("/fonts/NotoSansJP-Regular.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: "Noto Sans SC";
+  src: url("/fonts/NotoSansSC-VariableFont_wght.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-VariableFont_opsz,wght.ttf") format("TrueType");
+}
+
 :root {
   --color-background: #111318;
   --color-surface: #1c2028;
@@ -5,6 +20,8 @@
 
   --color-text: #f0f0f3;
   --color-text-muted: #9298a5;
+
+  --color-border: #2b303a;
 
   --color-accent: #e5b567;
   --color-china: #c94c4c;
@@ -18,5 +35,19 @@
 
 body {
   background: var(--color-background);
+  font-family: "Noto Sans JP", "Yu Gothic Medium", sans-serif;
   color: var(--color-text);
+}
+
+input,
+textarea {
+  color: var(--color-text);
+}
+
+.text--chinese {
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+.text--pinyin {
+  font-family: "Inter", sans-serif;
 }
