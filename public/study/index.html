@@ -10,7 +10,29 @@
 </head>
 
 <body>
-  <h1>Hanyu | Study</h1>
+  <main>
+    <section class="section--study" x-data="study">
+      <template x-if="mode === 'input'">
+        <div class="study study--input">
+          <div class="study__question">
+            <div class="study__question-number">1 / 10</div>
+            <div class="study__question-ja">中国語</div>
+            <div class="study__question-cn text--chinese">汉语</div>
+            <div class="study__question-pinyin text--pinyin">Hànyǔ</div>
+          </div>
+          <div class="study__answer">
+            <input type="text" spellcheck="false">
+          </div>
+        </div>
+      </template>
+      <template x-if="mode === 'card'">
+        <div class="study study--card">
+          card
+        </div>
+      </template>
+    </section>
+  </main>
+
   <script type="module" src="/js/common.js" defer></script>
   <script type="module" src="/js/study.js" defer></script>
 </body>

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <main x-data="main">
+  <!-- <main x-data="main">
     <section class="section section--settings">
       <div class="settings-group">
         <h2 class="settings-group__heading">モード選択</h2>
@@ -27,25 +27,26 @@
       </div>
     </section>
     <section class="section section--studying">
-      <template x-if="mode === 'input'">
-        <div class="studying studying--input">
-          <div class="studying__question">
-            <div class="studying__question-number">1 / 10</div>
-            <div class="studying__question-ja">中国語</div>
-            <div class="studying__question-cn text--chinese">汉语</div>
-            <div class="studying__question-pinyin text--pinyin">Hànyǔ</div>
-          </div>
-          <div class="studying__answer">
-            <input type="text" spellcheck="false">
-          </div>
-        </div>
-      </template>
-      <template x-if="mode === 'card'">
-        <div class="studying studying--card">
-          card
-        </div>
-      </template>
     </section>
+  </main> -->
+
+  <main>
+    <section class="section--settings" x-data="settings">
+      <div class="settings-group">
+        <h2 class="settings-group__heading">モード選択</h2>
+        <div class="settings-group__content">
+          <label>
+            <input type="radio" name="mode" value="input" x-model="settings.mode">
+            <span>ピンイン入力</span>
+          </label>
+          <label>
+            <input type="radio" name="mode" value="card" x-model="settings.mode">
+            <span>暗記カード</span>
+          </label>
+        </div>
+      </div>
+    </section>
+    <section class="section--categories" x-data="categories"></section>
   </main>
 
   <script type="module" src="/js/common.js" defer></script>

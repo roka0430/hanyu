@@ -1,0 +1,48 @@
+.study__question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.study__question-number {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.study__question-ja {
+  margin-top: 6px;
+  font-size: 1rem;
+}
+
+.study__question-cn {
+  height: 68px;
+
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.4;
+
+  cursor: pointer;
+}
+
+.study__question-pinyin {
+  height: 24px;
+
+  color: var(--color-text-muted);
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+}
+
+.study__answer input {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 14px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  outline: none;
+
+  color: var(--color-text);
+  font-size: 1.5rem;
+  text-align: center;
+}

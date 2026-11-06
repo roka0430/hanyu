@@ -51,3 +51,25 @@ textarea {
 .text--pinyin {
   font-family: "Inter", sans-serif;
 }
+
+/*  */
+
+main {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 700px;
+  height: 100vh;
+
+  margin: 0 auto 0;
+  padding-block: 50px;
+}
+
+section {
+  padding: 18px;
+
+  border: solid 1px var(--color-border);
+  border-radius: 5px;
+}
