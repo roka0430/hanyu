@@ -13,7 +13,7 @@
   <div class="edit-wrapper" x-data="edit">
     <div class="edit-directory">
       <template x-for="vocab in vocabulary" :key="vocab.id">
-        <div class="edit-directory__item" :class="{ 'current': currentId === vocab.id }" @click="selectWords(vocab.id)">
+        <div class="edit-directory__item" :class="{ 'current': currentId === vocab.id }" @click="selectWords(vocab.id)" @dblclick="renameWords(vocab.id)">
           <span x-text="vocab.name"></span>
         </div>
       </template>

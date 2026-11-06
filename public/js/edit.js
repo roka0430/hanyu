@@ -30,6 +30,10 @@ document.addEventListener("alpine:init", () => {
     },
 
     async selectWords(id) {
+      if (id === this.currentId) {
+        return;
+      }
+
       if (Object.keys(this.words).length > 0) {
         await this.saveWords();
       }
@@ -102,6 +106,24 @@ document.addEventListener("alpine:init", () => {
       }
 
       return output.join("\n");
+    },
+
+    renameWords(id) {
+      const newName = prompt("新しい名前を入力してください");
+
+      if (newName.trim() === "") {
+        return;
+      }
+
+      this.selectWords(id);
+      this.words.name = newName;
+
+      const vocab = this.vocabulary.find((vocab) => vocab.id === id);
+      if (vocab) {
+        vocab.name = newName;
+      }
+
+      this.saveWords();
     },
   }));
 });
