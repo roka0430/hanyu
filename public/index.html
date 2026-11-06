@@ -28,7 +28,7 @@
     </section>
     <section class="section--categories" x-data="categories">
       <template x-for="vocab in vocabulary" :key="vocab.id">
-        <a :href="`/study?id=${vocab.id}`">
+        <a class="vocabulary-category" :href="vocab.count === 0 ? null : `/study?id=${vocab.id}`" :class="{ 'disable': vocab.count === 0 }">
           <div x-text="vocab.name"></div>
         </a>
       </template>

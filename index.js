@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/api/vocabulary", async (req, res) => {
   const vocabulary = JSON.parse(await readFile("./data/vocabulary.json", "utf8"));
-  res.json(vocabulary.map(({ id, name }) => ({ id, name })));
+  res.json(vocabulary.map(({ id, name, words }) => ({ id, name, count: words.length })));
 });
 
 app.get("/api/vocabulary/:id", async (req, res) => {

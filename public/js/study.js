@@ -24,7 +24,7 @@ document.addEventListener("alpine:init", () => {
 
       this.words = await this.loadWords();
 
-      if (this.words === null) {
+      if (this.words === null || this.words.words.length === 0) {
         location.replace("/");
       }
     },
@@ -57,6 +57,11 @@ document.addEventListener("alpine:init", () => {
     },
 
     keydownInput(e) {
+      if (e.key === "Escape") {
+        location.replace("/");
+        return;
+      }
+
       if (this.isAnswering) {
         if (e.key === "Enter") {
           this.checkAnswer();

@@ -8,3 +8,7 @@
 .settings-group__heading {
   font-size: 1rem;
 }
+
+.vocabulary-category.disable {
+  cursor: not-allowed;
+}
