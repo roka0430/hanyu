@@ -12,8 +12,6 @@ document.addEventListener("alpine:init", () => {
 
     isAnswerVisible: false,
     isAnswering: true,
-    // isAnswerVisible: true,
-    // isAnswering: false,
 
     async init() {
       const params = new URLSearchParams(window.location.search);
@@ -25,7 +23,7 @@ document.addEventListener("alpine:init", () => {
       this.words = await this.loadWords();
 
       if (this.words === null || this.words.words.length === 0) {
-        location.replace("/");
+        this.goHome();
       }
     },
 
@@ -48,6 +46,10 @@ document.addEventListener("alpine:init", () => {
       return this.words ? this.words.words[this.index] : {};
     },
 
+    goHome() {
+      location.replace("/");
+    },
+
     convertPinyin(pinyin) {
       if (pinyin) {
         return convertPinyin(pinyin);
@@ -58,7 +60,7 @@ document.addEventListener("alpine:init", () => {
 
     keydownInput(e) {
       if (e.key === "Escape") {
-        location.replace("/");
+        this.goHome();
         return;
       }
 
@@ -107,7 +109,22 @@ document.addEventListener("alpine:init", () => {
     },
 
     finish() {
-      location.replace("/");
+      this.goHome();
+    },
+
+    cardKeydown(e) {
+      if (e.key === "Escape") {
+        this.goHome();
+        return;
+      }
+
+      if (e.key === "Enter") {
+        if (!this.isAnswerVisible) {
+          this.isAnswerVisible = true;
+        } else {
+          this.nextWord();
+        }
+      }
     },
   }));
 });

@@ -26,8 +26,13 @@
         </div>
       </template>
       <template x-if="settings.mode === 'card'">
-        <div class="study study--card">
-          card
+        <div class="study study--card" @keydown.window="cardKeydown(event)">
+          <div class="study__question">
+            <div class="study__question-number" x-text="`${index + 1} / ${words?.words.length}`">1 / 10</div>
+            <div class="study__question-ja" x-text="currentWord.ja">中国語</div>
+            <div class="study__question-cn text--chinese" x-text="isAnswerVisible ? currentWord.cn : '--'">汉语</div>
+            <div class="study__question-pinyin text--pinyin" x-text="isAnswerVisible ? convertPinyin(currentWord.pinyin) : '--'">Hànyǔ</div>
+          </div>
         </div>
       </template>
     </section>
