@@ -10,16 +10,22 @@
 </head>
 
 <body>
-  <div class="edit-wrapper">
+  <div class="edit-wrapper" x-data="edit">
     <div class="edit-directory">
+      <template x-for="vocab in vocabulary" :key="vocab.id">
+        <div class="edit-directory__item" :class="{ 'current': currentId === vocab.id }" @click="selectWords(vocab.id)">
+          <span x-text="vocab.name"></span>
+        </div>
+      </template>
     </div>
     <div class="edit-content">
-      <textarea class="edit-content__textarea text--chinese"></textarea>
+      <textarea class="edit-content__textarea text--chinese" x-text="wordsText" @input="inputTextarea"></textarea>
     </div>
   </div>
 
   <script type="module" src="/js/common.js" defer></script>
   <script type="module" src="/js/edit.js" defer></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 
 </html>
