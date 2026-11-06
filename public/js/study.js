@@ -95,9 +95,19 @@ document.addEventListener("alpine:init", () => {
     },
 
     nextWord() {
+      if (this.index + 1 > this.words.words.length - 1) {
+        this.finish();
+        return;
+      }
+
       this.isAnswerVisible = false;
       this.isAnswering = true;
+
       this.index++;
+    },
+
+    finish() {
+      location.replace("/");
     },
   }));
 });
