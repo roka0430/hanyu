@@ -1,20 +1,33 @@
 export class SettingsStorage {
   constructor(storage_key) {
     this.key = storage_key;
+
+    this.defaultSettings = {
+      mode: "input",
+    };
   }
 
-  load(defaultValue = null) {
+  load() {
     try {
       const value = localStorage.getItem(this.key);
 
       if (value === null) {
-        return defaultValue;
+        return this.defaultSettings;
       }
 
-      return JSON.parse(value);
+      const settings = { ...this.defaultSettings };
+      const localSettings = JSON.parse(value);
+
+      for (const [key, value] of Object.entries(localSettings)) {
+        if (key in settings) {
+          settings[key] = value;
+        }
+      }
+
+      return settings;
     } catch (error) {
       console.error(`Failed to load storage: ${error}`);
-      return defaultValue;
+      return this.defaultSettings;
     }
   }
 
