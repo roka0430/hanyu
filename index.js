@@ -1,5 +1,5 @@
 import express from "express";
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 
 const app = express();
 const PORT = 3000;
@@ -24,6 +24,21 @@ app.get("/api/vocabulary/:id", async (req, res) => {
   }
 
   res.json(words);
+});
+
+app.post("/api/vocabulary/:id", async (req, res) => {
+  const id = Number(req.params.id);
+  const words = req.body;
+
+  const vocabulary = JSON.parse(await readFile("./data/vocabulary.json", "utf8"));
+  const wordsIndex = vocabulary.findIndex((vocab) => vocab.id === id);
+
+  vocabulary[wordsIndex].name = words.name;
+  vocabulary[wordsIndex].words = words.words;
+
+  await writeFile("./data/vocabulary.json", JSON.stringify(vocabulary, null, 2), "utf-8");
+
+  res.json({ message: "success" });
 });
 
 app.listen(PORT, () => {

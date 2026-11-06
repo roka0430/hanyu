@@ -4,6 +4,7 @@ document.addEventListener("alpine:init", () => {
     words: {},
     currentId: null,
     timeout: null,
+    textarea: "",
 
     async init() {
       this.vocabulary = await this.loadVocabulary();
@@ -29,10 +30,13 @@ document.addEventListener("alpine:init", () => {
     },
 
     async selectWords(id) {
-      await this.saveWords();
+      if (Object.keys(this.words).length > 0) {
+        await this.saveWords();
+      }
 
       this.currentId = id;
       this.words = await this.loadWords();
+      this.textarea = this.wordsText;
     },
 
     async loadWords() {
@@ -50,7 +54,33 @@ document.addEventListener("alpine:init", () => {
       }
     },
 
-    async saveWords() {},
+    async saveWords() {
+      const words = [];
+
+      for (const line of this.textarea.split("\n").filter(Boolean)) {
+        const [ja, cn, pinyin] = [...line.split("；"), "", "", ""];
+        words.push({ ja, cn, pinyin });
+      }
+
+      this.words.words = words;
+
+      try {
+        const res = await fetch(`/api/vocabulary/${this.currentId}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(this.words),
+        });
+
+        if (!res.ok) {
+          throw new Error("Failed to save words");
+        }
+
+        return await res.json();
+      } catch (error) {
+        console.error(error);
+        return null;
+      }
+    },
 
     inputTextarea() {
       if (this.timeout) {
@@ -61,11 +91,12 @@ document.addEventListener("alpine:init", () => {
     },
 
     get wordsText() {
-      if (!this.words.words) {
+      if (Object.keys(this.words).length === 0) {
         return "";
       }
 
       const output = [];
+
       for (const word of this.words.words) {
         output.push(Object.values(word).join("；"));
       }
