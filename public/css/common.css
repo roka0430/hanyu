@@ -26,6 +26,8 @@
   --color-accent: #e5b567;
   --color-china: #c94c4c;
 
+  --color-link: #8ab4f8;
+
   --color-correct: #81b89a;
   --color-correct-background: #1c2924;
 }
@@ -45,6 +47,15 @@ body {
 input,
 textarea {
   color: var(--color-text);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .text--chinese {
