@@ -15,10 +15,10 @@
       <template x-if="settings.mode === 'input'">
         <div class="study study--input">
           <div class="study__question">
-            <div class="study__question-number" x-text="`${index + 1} / ${words?.words.length}`">1 / 10</div>
-            <div class="study__question-ja" x-text="currentWord.ja">中国語</div>
-            <div class="study__question-cn text--chinese" x-text="isAnswerVisible ? currentWord.cn : '--'">汉语</div>
-            <div class="study__question-pinyin text--pinyin" x-text="isAnswerVisible ? convertPinyin(currentWord.pinyin) : '--'">Hànyǔ</div>
+            <div class="study__question-number" x-text="`${index + 1} / ${words?.words.length}`"></div>
+            <div class="study__question-ja" x-text="currentWord.ja"></div>
+            <div class="study__question-cn text--chinese" x-text="isAnswerVisible ? currentWord.cn : '--'" @click="speak(currentWord.cn)"></div>
+            <div class="study__question-pinyin text--pinyin" x-text="isAnswerVisible ? convertPinyin(currentWord.pinyin) : '--'"></div>
           </div>
           <div class="study__answer">
             <input type="text" x-model="answer" @keydown="keydownInput(event)" spellcheck="false" autofocus>
@@ -28,10 +28,10 @@
       <template x-if="settings.mode === 'card'">
         <div class="study study--card" @keydown.window="cardKeydown(event)">
           <div class="study__question">
-            <div class="study__question-number" x-text="`${index + 1} / ${words?.words.length}`">1 / 10</div>
-            <div class="study__question-ja" x-text="currentWord.ja">中国語</div>
-            <div class="study__question-cn text--chinese" x-text="isAnswerVisible ? currentWord.cn : '--'">汉语</div>
-            <div class="study__question-pinyin text--pinyin" x-text="isAnswerVisible ? convertPinyin(currentWord.pinyin) : '--'">Hànyǔ</div>
+            <div class="study__question-number" x-text="`${index + 1} / ${words?.words.length}`"></div>
+            <div class="study__question-ja" x-text="currentWord.ja"></div>
+            <div class="study__question-cn text--chinese" x-text="isAnswerVisible ? currentWord.cn : '--'" @click="speak(currentWord.cn)"></div>
+            <div class="study__question-pinyin text--pinyin" x-text="isAnswerVisible ? convertPinyin(currentWord.pinyin) : '--'"></div>
           </div>
         </div>
       </template>

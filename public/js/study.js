@@ -85,6 +85,7 @@ document.addEventListener("alpine:init", () => {
       const answer = this.currentWord.pinyin.toLowerCase().replace(/ /g, "");
 
       if (pinyin === answer) {
+        this.speak(this.currentWord.cn);
         this.isAnswerVisible = true;
         this.isAnswering = false;
       }
@@ -125,6 +126,16 @@ document.addEventListener("alpine:init", () => {
           this.nextWord();
         }
       }
+    },
+
+    speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+
+      utterance.lang = "zh-CN";
+      utterance.rate = 0.5;
+      utterance.pitch = 1.0;
+
+      speechSynthesis.speak(utterance);
     },
   }));
 });
