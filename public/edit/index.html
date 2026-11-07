@@ -16,8 +16,9 @@
         <button @click="newCategory()">新しいカテゴリ</button>
       </div>
       <template x-for="vocab in vocabulary" :key="vocab.id">
-        <div class="edit-directory__item" :class="{ 'current': currentId === vocab.id }" @click="selectWords(vocab.id)" @dblclick="renameWords(vocab.id)">
-          <span x-text="vocab.name"></span>
+        <div class="edit-directory__item" :class="{ 'current': currentId === vocab.id }">
+          <span x-text="vocab.name" @click="selectWords(vocab.id)" @dblclick="renameWords(vocab.id)"></span>
+          <button @click="deleteWords(vocab.id)">delete</button>
         </div>
       </template>
     </div>

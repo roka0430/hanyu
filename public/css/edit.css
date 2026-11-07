@@ -23,9 +23,11 @@ body {
 }
 
 .edit-directory__item {
-  height: 28px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  height: 28px;
 
   padding-inline: 8px;
 
@@ -44,6 +46,15 @@ body {
 
 .edit-directory__item.current {
   background: var(--color-surface-secondary);
+}
+
+.edit-directory__item span {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+
+  height: 100%;
 }
 
 .edit-content {

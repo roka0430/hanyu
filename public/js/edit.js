@@ -152,5 +152,33 @@ document.addEventListener("alpine:init", () => {
         return null;
       }
     },
+
+    async deleteWords(id) {
+      if (prompt("「delete」と入力して削除") !== "delete") {
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/vocabulary/${id}`, {
+          method: "DELETE",
+        });
+
+        if (!res.ok) {
+          throw new Error("Failed to delete words");
+        }
+
+        const result = await res.json();
+
+        this.vocabulary = await this.loadVocabulary();
+        if (this.vocabulary.length > 0) {
+          this.selectWords(this.vocabulary[0].id);
+        }
+
+        return result;
+      } catch (error) {
+        console.error(error);
+        return null;
+      }
+    },
   }));
 });

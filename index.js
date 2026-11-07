@@ -65,6 +65,18 @@ app.post("/api/vocabulary/:id", async (req, res) => {
   res.json({ message: "success" });
 });
 
+app.delete("/api/vocabulary/:id", async (req, res) => {
+  const id = Number(req.params.id);
+
+  const vocabulary = JSON.parse(await readFile("./data/vocabulary.json", "utf8"));
+
+  const updatedVocabulary = vocabulary.filter((vocab) => vocab.id !== id);
+
+  await writeFile("./data/vocabulary.json", JSON.stringify(updatedVocabulary, null, 2), "utf-8");
+
+  res.json({ message: "success" });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
