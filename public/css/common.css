@@ -54,10 +54,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 .text--chinese {
   font-family: "Noto Sans SC", sans-serif;
 }

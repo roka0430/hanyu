@@ -12,17 +12,18 @@
 <body>
   <main>
     <section class="section--settings" x-data="settings">
-      <div class="settings-group">
+      <div class="settings-header">
         <a href="/edit">編集</a>
       </div>
+      <div class="section-separator"></div>
       <div class="settings-group">
         <h2 class="settings-group__heading">モード選択</h2>
         <div class="settings-group__content">
-          <label>
+          <label class="settings-group__radio">
             <input type="radio" name="mode" value="input" x-model="settings.mode">
             <span>ピンイン入力</span>
           </label>
-          <label>
+          <label class="settings-group__radio">
             <input type="radio" name="mode" value="card" x-model="settings.mode">
             <span>暗記カード</span>
           </label>

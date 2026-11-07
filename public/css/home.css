@@ -1,12 +1,81 @@
 .section--categories {
   flex: 1;
+
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+
   min-height: 0;
   overflow-y: scroll;
   scrollbar-width: none;
 }
 
+.section-separator {
+  margin-block: 10px;
+  border-top: solid 1px var(--color-border);
+}
+
+.settings-header {
+  display: flex;
+  justify-content: right;
+  padding-inline: 3px;
+}
+
+.settings-header a {
+  font-size: 0.9rem;
+}
+
+.settings-header a:hover {
+  text-decoration: underline;
+}
+
+.settings-group {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+}
+
 .settings-group__heading {
-  font-size: 1rem;
+  font-size: 0.9rem;
+}
+
+.settings-group__content {
+  display: flex;
+  gap: 8px;
+}
+
+.settings-group__radio {
+  padding-block: 3px 5px;
+  padding-inline: 8px;
+
+  border: solid 1px var(--color-border);
+  border-radius: 5px;
+
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.settings-group__radio:has(input:checked) {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.settings-group__radio input {
+  display: none;
+}
+
+.vocabulary-category {
+  display: inline-block;
+  padding-block: 3px 5px;
+  padding-inline: 8px;
+  border-radius: 3px;
+}
+
+.vocabulary-category:hover {
+  background: var(--color-surface);
 }
 
 .vocabulary-category.disable {
