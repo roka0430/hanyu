@@ -12,6 +12,9 @@
 <body>
   <div class="edit-wrapper" x-data="edit">
     <div class="edit-directory">
+      <div>
+        <button @click="newCategory()">新しいカテゴリ</button>
+      </div>
       <template x-for="vocab in vocabulary" :key="vocab.id">
         <div class="edit-directory__item" :class="{ 'current': currentId === vocab.id }" @click="selectWords(vocab.id)" @dblclick="renameWords(vocab.id)">
           <span x-text="vocab.name"></span>

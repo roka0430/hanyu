@@ -26,6 +26,30 @@ app.get("/api/vocabulary/:id", async (req, res) => {
   res.json(words);
 });
 
+app.post("/api/vocabulary/new", async (req, res) => {
+  const { name } = req.body;
+
+  const vocabulary = JSON.parse(await readFile("./data/vocabulary.json", "utf8"));
+  const idList = vocabulary.map(({ id }) => id);
+
+  let id = 0;
+  while (idList.includes(id)) {
+    id++;
+  }
+
+  const newWords = {
+    id: id,
+    name: name,
+    words: [],
+  };
+
+  vocabulary.push(newWords);
+
+  await writeFile("./data/vocabulary.json", JSON.stringify(vocabulary, null, 2), "utf-8");
+
+  res.json(newWords);
+});
+
 app.post("/api/vocabulary/:id", async (req, res) => {
   const id = Number(req.params.id);
   const words = req.body;

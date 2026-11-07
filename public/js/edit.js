@@ -125,5 +125,32 @@ document.addEventListener("alpine:init", () => {
 
       this.saveWords();
     },
+
+    async newCategory() {
+      const newName = prompt("作成する名前を入力してください");
+
+      if (newName.trim() === "") {
+        return;
+      }
+
+      try {
+        const res = await fetch("/api/vocabulary/new", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: newName }),
+        });
+
+        if (!res.ok) {
+          throw new Error("Failed to create new category");
+        }
+
+        const result = await res.json();
+        this.vocabulary = await this.loadVocabulary();
+        this.selectWords(result.id);
+      } catch (error) {
+        console.error(error);
+        return null;
+      }
+    },
   }));
 });
