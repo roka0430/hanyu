@@ -49,6 +49,10 @@ textarea {
   color: var(--color-text);
 }
 
+button {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
 a {
   color: var(--color-link);
   text-decoration: none;

@@ -30,7 +30,7 @@ body {
 }
 
 .edit-directory__header button {
-  padding-block: 1px;
+  padding-block: 1px 3px;
   padding-inline: 4px;
 
   background: none;
