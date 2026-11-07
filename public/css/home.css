@@ -22,6 +22,11 @@
   text-decoration: underline;
 }
 
+.settings-groups {
+  display: flex;
+  gap: 15px;
+}
+
 .settings-group {
   display: flex;
   gap: 8px;
@@ -29,7 +34,8 @@
 }
 
 .settings-group__heading {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  font-weight: normal;
 }
 
 .settings-group__content {
