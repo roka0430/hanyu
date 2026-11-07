@@ -122,6 +122,7 @@ document.addEventListener("alpine:init", () => {
       if (e.key === "Enter") {
         if (!this.isAnswerVisible) {
           this.isAnswerVisible = true;
+          this.speak(this.currentWord.cn);
         } else {
           this.nextWord();
         }
