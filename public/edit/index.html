@@ -12,13 +12,23 @@
 <body>
   <div class="edit-wrapper" x-data="edit">
     <div class="edit-directory">
-      <div>
+      <div class="edit-directory__header">
+        <button @click="location.replace('/')">戻る</button>
         <button @click="newCategory()">新しいカテゴリ</button>
       </div>
       <template x-for="vocab in vocabulary" :key="vocab.id">
         <div class="edit-directory__item" :class="{ 'current': currentId === vocab.id }">
           <span x-text="vocab.name" @click="selectWords(vocab.id)" @dblclick="renameWords(vocab.id)"></span>
-          <button @click="deleteWords(vocab.id)">delete</button>
+          <button @click="deleteWords(vocab.id)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M4 7l16 0" />
+              <path d="M10 11l0 6" />
+              <path d="M14 11l0 6" />
+              <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+              <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+            </svg>
+          </button>
         </div>
       </template>
     </div>
