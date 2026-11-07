@@ -1,17 +1,10 @@
-.section--categories {
-  flex: 1;
-
+.section--settings {
   display: flex;
-  gap: 3px;
+  gap: 15px;
   flex-direction: column;
-
-  min-height: 0;
-  overflow-y: scroll;
-  scrollbar-width: none;
 }
 
 .section-separator {
-  margin-block: 10px;
   border-top: solid 1px var(--color-border);
 }
 
@@ -65,6 +58,18 @@
 
 .settings-group__radio input {
   display: none;
+}
+
+.section--categories {
+  flex: 1;
+
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+
+  min-height: 0;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 .vocabulary-category {

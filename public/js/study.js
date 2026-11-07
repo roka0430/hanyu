@@ -129,6 +129,10 @@ document.addEventListener("alpine:init", () => {
     },
 
     speak(text) {
+      if (!this.settings.speak) {
+        return;
+      }
+
       const utterance = new SpeechSynthesisUtterance(text);
 
       utterance.lang = "zh-CN";

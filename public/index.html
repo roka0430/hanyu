@@ -29,6 +29,19 @@
           </label>
         </div>
       </div>
+      <div class="settings-group">
+        <h2 class="settings-group__heading">中国語読み上げ</h2>
+        <div class="settings-group__content">
+          <label class="settings-group__radio">
+            <input type="radio" name="speak" value="true" x-model.boolean="settings.speak">
+            <span>読み上げあり</span>
+          </label>
+          <label class="settings-group__radio">
+            <input type="radio" name="speak" value="false" x-model.boolean="settings.speak">
+            <span>読み上げなし</span>
+          </label>
+        </div>
+      </div>
     </section>
     <section class="section--categories" x-data="categories">
       <template x-for="vocab in vocabulary" :key="vocab.id">

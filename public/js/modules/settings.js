@@ -4,6 +4,7 @@ export class SettingsStorage {
 
     this.defaultSettings = {
       mode: "input",
+      speak: false,
     };
   }
 
