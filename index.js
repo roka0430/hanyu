@@ -2,7 +2,7 @@ import express from "express";
 import { readFile, writeFile } from "node:fs/promises";
 
 const app = express();
-const PORT = 3000;
+const PORT = 3004;
 
 app.use(express.json());
 app.use(express.static("public"));
